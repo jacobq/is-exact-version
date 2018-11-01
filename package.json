@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/jacobq/is-exact-version/issues"
   },
-  "homepage": "https://github.com/jacobq/is-exact-version#readme"
+  "homepage": "https://github.com/jacobq/is-exact-version#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
