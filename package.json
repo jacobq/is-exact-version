@@ -1,0 +1,25 @@
+{
+  "name": "is-exact-version",
+  "version": "0.0.0",
+  "description": "Simple, modern module for identifying whether a package.json \"version range\" string refers to an exact version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jacobq/is-exact-version.git"
+  },
+  "keywords": [
+    "exact",
+    "semver",
+    "version",
+    "range"
+  ],
+  "author": "Jacob Quant <jacobq@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacobq/is-exact-version/issues"
+  },
+  "homepage": "https://github.com/jacobq/is-exact-version#readme"
+}
