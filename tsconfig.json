@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "allowJs": false,
+    "baseUrl": ".",
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noEmit": false,
+    "paths" : {
+      "@src/*": ["src/*"]
+    },
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "include": [
+    "./node_modules/@types/**/*.d.ts",
+    "./types/**/*.d.ts",
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "tmp",
+    "./tests/**/*.test.ts"
+  ]
+}
+
