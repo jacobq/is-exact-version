@@ -22,7 +22,23 @@ import { isExactVersion } from '../src/is-exact-version';
     path/path/path See Local Paths below
 */
 
-describe('Exact', ()=> {
+const baseURLs = [
+  'jquant/is-exact-version.git',
+  'github.com:jquant/is-exact-version.git',
+  'git@github.com:jquant/is-exact-version.git',
+  'https://github.com:jquant/is-exact-version.git',
+  'git+https://github.com:jquant/is-exact-version.git',
+  'git+ssh://git@github.com:jquant/is-exact-version.git'
+];
+
+const generateUrls = (baseURLs, refs) => {
+  return baseURLs.reduce((urls, baseURL) => {
+    return urls.concat(refs.map(ref => `${baseURL}${ref}`))
+  }, [])
+};
+
+
+describe('Exact', () => {
     [{
         name: 'Simple',
         inputs: [
@@ -41,8 +57,28 @@ describe('Exact', ()=> {
         inputs: [
             '4.0.0-beta.1',
         ],
+    }, {
+        name: 'Local paths',
+        skip: true,
+        inputs: [
+            '../foo/bar',
+            '~/foo/bar',
+            './foo/bar',
+            '/foo/bar',
+            'file:../foo/bar',
+        ],
+    }, {
+        name: 'Commit-ish',
+        skip: true,
+        inputs: generateUrls(baseURLs, [
+          '#master',
+          '#something-with-hyphens',
+          '#9bfce8f957a80c93d5c6365377d07a59034c6482',
+          '#semver:1.0.0'
+        ]),
     }].forEach(group => {
-        describe(group.name, ()=> {
+        const invokation = group.skip ? describe.skip.bind(describe) : describe;
+        invokation(group.name, ()=> {
             group.inputs.forEach(versionString => {
                 it(versionString, () => {
                     expect(isExactVersion(versionString)).toStrictEqual(true);
@@ -97,8 +133,19 @@ describe('Not exact', ()=> {
             '*',
             '',
         ],
+    }, {
+        name: 'Commit-ish',
+        skip: true,
+        inputs: generateUrls(baseURLs, [
+          '#semver:^5.0',
+          '#semver:~1.2.0',
+          '#semver:*',
+          '#semver:',
+          '#semver:2.x'
+        ])
     }].forEach(group => {
-        describe(group.name, ()=> {
+        const invokation = group.skip ? describe.skip.bind(describe) : describe;
+        invokation(group.name, ()=> {
             group.inputs.forEach(versionString => {
                 it(`'${versionString}'`, () => {
                     expect(isExactVersion(versionString)).toStrictEqual(false);
