@@ -4,7 +4,7 @@
   "description": "Simple, modern module for identifying whether a package.json \"version range\" string refers to an exact version",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,15 @@
     "url": "https://github.com/jacobq/is-exact-version/issues"
   },
   "homepage": "https://github.com/jacobq/is-exact-version#readme",
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
+  },
   "devDependencies": {
-    "cz-conventional-changelog": "^2.1.0"
+    "@types/jest": "^23.3.9",
+    "cz-conventional-changelog": "^2.1.0",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.5"
   },
   "config": {
     "commitizen": {
