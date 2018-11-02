@@ -10,4 +10,4 @@ after_success:
   # Also upload coverage information to CodeClimate
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter upload-coverage --id d98fe102200037e7cf63419f71720500f682a4bcdb05da95a95fba18296b401e -i coverage/coverage-final.json
+  - ./cc-test-reporter upload-coverage --id $CODECLIMATE_TOKEN -i coverage/coverage-final.json

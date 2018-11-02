@@ -35,7 +35,7 @@ See [`LICENSE`](LICENSE) for the complete text.
 [npm-url]: https://npmjs.org/package/is-exact-version
 [travis-image]: https://img.shields.io/travis/com/jacobq/is-exact-version/master.svg?style=flat-square
 [travis-url]: https://travis-ci.com/jacobq/is-exact-version
-[code-climate-image]: https://img.shields.io/codeclimate/maintainability-percentage/jacobq/is-exact-version.svg
+[code-climate-image]: https://img.shields.io/codeclimate/maintainability-percentage/jacobq/is-exact-version.svg?style=flat-square
 [code-climate-url]: https://codeclimate.com/github/jacobq/is-exact-version
 [codecov-image]: https://img.shields.io/codecov/c/github/jacobq/is-exact-version.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/jacobq/is-exact-version
