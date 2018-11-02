@@ -32,7 +32,7 @@ See [`LICENSE`](LICENSE) for the complete text.
 
 [npm-image]: https://img.shields.io/npm/v/is-exact-version.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/is-exact-version
-[travis-image]: https://img.shields.io/travis/jacobq/is-exact-version/master.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/com/jacobq/is-exact-version/master.svg?style=flat-square
 [travis-url]: https://travis-ci.com/jacobq/is-exact-version
 [codecov-image]: https://img.shields.io/codecov/c/github/jacobq/is-exact-version.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/jacobq/is-exact-version
