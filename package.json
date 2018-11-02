@@ -2,8 +2,9 @@
   "name": "is-exact-version",
   "version": "0.0.0",
   "description": "Simple, modern module for identifying whether a package.json \"version range\" string refers to an exact version",
-  "main": "index.js",
+  "main": "dist/is-exact-version.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "repository": {

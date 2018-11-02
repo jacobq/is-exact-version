@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
     "allowJs": false,
     "baseUrl": ".",
     "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "noEmitOnError": false,
     "noEmit": false,
+    "outDir": "dist",
     "paths" : {
       "@src/*": ["src/*"]
     },
+    "removeComments": true,
     "sourceMap": true,
+    "strictNullChecks": true,
     "typeRoots": ["./node_modules/@types", "./types"]
   },
   "include": [

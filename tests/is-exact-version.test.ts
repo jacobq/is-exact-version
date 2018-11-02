@@ -31,8 +31,8 @@ const baseURLs = [
   'git+ssh://git@github.com:jquant/is-exact-version.git'
 ];
 
-const generateUrls = (baseURLs, refs) => {
-  return baseURLs.reduce((urls, baseURL) => {
+const generateUrls = (baseURLs: string[], refs: string[]) => {
+  return baseURLs.reduce((urls: string[], baseURL) => {
     return urls.concat(refs.map(ref => `${baseURL}${ref}`))
   }, [])
 };
@@ -79,7 +79,7 @@ describe('Exact', () => {
     }].forEach(group => {
         const invokation = group.skip ? describe.skip.bind(describe) : describe;
         invokation(group.name, ()=> {
-            group.inputs.forEach(versionString => {
+            group.inputs.forEach((versionString: string) => {
                 it(versionString, () => {
                     expect(isExactVersion(versionString)).toStrictEqual(true);
                 });
@@ -146,7 +146,7 @@ describe('Not exact', ()=> {
     }].forEach(group => {
         const invokation = group.skip ? describe.skip.bind(describe) : describe;
         invokation(group.name, ()=> {
-            group.inputs.forEach(versionString => {
+            group.inputs.forEach((versionString: string) => {
                 it(`'${versionString}'`, () => {
                     expect(isExactVersion(versionString)).toStrictEqual(false);
                 });
@@ -160,14 +160,14 @@ describe('Error', () => {
         [
             undefined,
             null,
-        ].forEach(versionString => it(`(invalid) ${JSON.stringify(versionString)}`, () => {
+        ].forEach((versionString: any) => it(`(invalid) ${JSON.stringify(versionString)}`, () => {
             expect(() => isExactVersion(versionString)).toThrow(/must be a string/);
         }));
     });
     describe('String', () => {
         [
             'a.b.c'
-        ].forEach(versionString => it(`(invalid) ${JSON.stringify(versionString)}`, () => {
+        ].forEach((versionString: string) => it(`(invalid) ${JSON.stringify(versionString)}`, () => {
             expect(() => isExactVersion(versionString)).toThrow(/invalid version/);
         }));
     });

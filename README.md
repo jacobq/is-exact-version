@@ -23,8 +23,8 @@ Making my own implementation seemed the more civil course of action than engagin
 * Uses node's own [`semver`](https://www.npmjs.com/package/semver) module as much as possible,
   and consequently uses no [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
   of its own.
-* Strict null checks enabled in [`tsconfig.json`](tslint.json)
-* 100% test coverage
+* `strictNullChecks` & `noImplicitAny` are both enabled in [`tsconfig.json`](tslint.json).
+* Thorough test suite clearly indicates behavior.
 
 ## License
 
