@@ -8,7 +8,7 @@ interface TestGroup {
 }
 
 const baseURLs = [
-  'user123/is-exact-version.git',
+  'user/repo',
   'github.com:user123/is-exact-version.git',
   'git@github.com:user123/is-exact-version.git',
   'https://github.com:user123/is-exact-version.git',

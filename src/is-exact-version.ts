@@ -1,6 +1,6 @@
 import * as debug from 'debug';
 import {
-  clean, coerce, valid, Range,
+  clean, Range,
 } from 'semver';
 
 const log = debug('is-exact-version');
@@ -19,21 +19,7 @@ const throwIfNotString = (versionString: any): void => {
   }
 };
 
-
-const throwIfNotSemverString = (versionString: string) : void => {
-  const coercedVersion = coerce(versionString);
-  log(`coercedVersion=${coercedVersion}`);
-  const isValid = coercedVersion !== null && valid(coercedVersion) !== null;
-  if (!isValid) {
-    throw Error(
-      `Received invalid version string (semver.clean(${JSON.stringify(
-        versionString,
-      )}) = ${coercedVersion}`,
-    );
-  }
-};
-
-export function isExactVersion(versionString: any): boolean {
+export const isExactVersion = (versionString: any) : boolean => {
   log(`called with ${JSON.stringify(versionString)}`);
   throwIfNotString(versionString);
 
@@ -87,14 +73,15 @@ export function isExactVersion(versionString: any): boolean {
         log(`detected semver expression in commitish. Recursing with newExpression = ${newExpression}`);
         return isExactVersion(newExpression);
       }
-    } else {
-      return false;
+      // There isn't a semver prefix, but there was a hash, so this refers to an exact commit-ish
+      return true;
     }
+    // Using a repository URL without a hash is implicitly treated as master
+    return false;
   }
 
-  throwIfNotSemverString(trimmedString);
-
-  return true;
-}
+  // If we get this far we are dealing with something considered invalid
+  throw Error(`Received invalid version string (${versionString})`);
+};
 
 export default isExactVersion;
