@@ -1,9 +1,14 @@
 import * as semver from 'semver';
+import * as debug from 'debug';
+
+const log = debug('is-exact-version');
 
 const wildcardStrings = ['', '*'];
 
 export function isExactVersion(versionString: any) : boolean {
+    log(`isExactVersion called with ${JSON.stringify(versionString)}`);
     const isWildcard = wildcardStrings.some(s => s === versionString);
+    log(`isWildcard=${isWildcard}`);
     if (isWildcard) {
         return false;
     }
@@ -12,10 +17,12 @@ export function isExactVersion(versionString: any) : boolean {
 
     // Clean removes leading and trailing whitespace & returns null for ranges
     const cleanedVersionString = semver.clean(versionString);
+    log(`cleanedVersionString=${cleanedVersionString}`);
     if (cleanedVersionString === null) {
         return false;
     }
     if (versionString !== cleanedVersionString) {
+        log('About to recurse');
         return isExactVersion(cleanedVersionString);
     }
 

@@ -25,6 +25,19 @@ Making my own implementation seemed the more civil course of action than engagin
   of its own.
 * `strictNullChecks` & `noImplicitAny` are both enabled in [`tsconfig.json`](tslint.json).
 * Thorough test suite clearly indicates behavior.
+* Dependencies kept up to date using [Renovate](https://github.com/marketplace/renovate)
+
+## Development
+
+This package uses [visionmedia/debug](https://github.com/visionmedia/debug)
+and will output debugging information if the `DEBUG` environment variable
+enables `is-exact-version`. e.g.
+
+```sh
+$ DEBUG=is-exact-version node some-app.js
+```
+
+This project also strives to adhere to the [conventional commits standard](https://www.conventionalcommits.org/).
 
 ## License
 

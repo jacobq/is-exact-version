@@ -37,6 +37,11 @@ const generateUrls = (baseURLs: string[], refs: string[]) => {
   }, [])
 };
 
+interface TestGroup {
+  name: string;
+  skip?: boolean;
+  inputs: string[];
+}
 
 describe('Exact', () => {
     [{
@@ -76,7 +81,7 @@ describe('Exact', () => {
           '#9bfce8f957a80c93d5c6365377d07a59034c6482',
           '#semver:1.0.0'
         ]),
-    }].forEach(group => {
+    }].forEach((group: TestGroup) => {
         const invokation = group.skip ? describe.skip.bind(describe) : describe;
         invokation(group.name, ()=> {
             group.inputs.forEach((versionString: string) => {
@@ -143,7 +148,7 @@ describe('Not exact', ()=> {
           '#semver:',
           '#semver:2.x'
         ])
-    }].forEach(group => {
+    }].forEach((group: TestGroup) => {
         const invokation = group.skip ? describe.skip.bind(describe) : describe;
         invokation(group.name, ()=> {
             group.inputs.forEach((versionString: string) => {
