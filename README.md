@@ -27,6 +27,38 @@ Making my own implementation seemed the more civil course of action than engagin
 * Thorough test suite clearly indicates behavior.
 * Dependencies kept up to date using [Renovate](https://github.com/marketplace/renovate)
 
+## Usage
+
+:warning: Behavior may change between versions until v1.0.0 is released.
+If you are using a 0.x version then you may want to pin it to prevent unexpected changes.
+
+*Example*: ([try it on RunKit](https://runkit.com/embed/aco1nt0row7y))
+ 
+```js
+const { isExactVersion } = require("is-exact-version");
+
+const examples = [
+  '^1.0.0',
+  '~1.1.0',
+  '1.1.1',
+  '1.0.0-beta.1',
+  'user/is-exact-version#commit'
+];
+examples.forEach(s => 
+  console.log(`${s} -> ${isExactVersion(s)}`)
+);
+
+// Log:
+// "^1.0.0 -> false"
+// "~1.1.0 -> false"
+// "1.1.1 -> true"
+// "1.0.0-beta.1 -> true"
+```
+
+## Support / questions
+
+If you have any questions or suggestions related to this module feel free to create a new issue.
+
 ## Development
 
 This package uses [visionmedia/debug](https://github.com/visionmedia/debug)
