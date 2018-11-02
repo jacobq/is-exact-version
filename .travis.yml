@@ -8,6 +8,8 @@ node_js:
 after_success:
   - codecov
   # Also upload coverage information to CodeClimate
+  - export GIT_COMMIT_SHA=$TRAVIS_COMMIT
+  - export GIT_BRANCH=$TRAVIS_BRANCH
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter upload-coverage --id $CODECLIMATE_TOKEN -i coverage/coverage-final.json
