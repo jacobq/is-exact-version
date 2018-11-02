@@ -5,7 +5,7 @@
 [![CodeClimate maintainability rating (percent)][code-climate-image]][code-climate-url]
 [![test coverage][codecov-image]][codecov-url]
 [![David (dependency monitor)][david-image]][david-url]
-[![npm download][download-image]][download-url]
+[![This project uses conventional commits][conventional-commits-image]][conventional-commits-url]
 
 This module is a complete re-write of [bendrucker/exact-version](https://github.com/bendrucker/exact-version).
 It drops support for end-of-life versions of node, is written in TypeScript, and uses Jest for testing.
@@ -54,5 +54,5 @@ See [`LICENSE`](LICENSE) for the complete text.
 [codecov-url]: https://codecov.io/gh/jacobq/is-exact-version
 [david-image]: https://img.shields.io/david/jacobq/is-exact-version.svg?style=flat-square
 [david-url]: https://david-dm.org/jacobq/is-exact-version
-[download-image]: https://img.shields.io/npm/dm/is-exact-version.svg?style=flat-square
-[download-url]: https://npmjs.org/package/is-exact-version
+[conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square
+[conventional-commits-url]: https://conventionalcommits.org
