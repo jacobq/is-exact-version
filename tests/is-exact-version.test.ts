@@ -1,25 +1,25 @@
 import { isExactVersion } from '../src/is-exact-version';
 
-const baseURLs = [
-  'jquant/is-exact-version.git',
-  'github.com:jquant/is-exact-version.git',
-  'git@github.com:jquant/is-exact-version.git',
-  'https://github.com:jquant/is-exact-version.git',
-  'git+https://github.com:jquant/is-exact-version.git',
-  'git+ssh://git@github.com:jquant/is-exact-version.git',
-];
-
-const generateUrls = (baseURLs: string[], refs: string[]) => {
-  return baseURLs.reduce((urls: string[], baseURL) => {
-    return urls.concat(refs.map(ref => `${baseURL}${ref}`));
-  }, []);
-};
-
 interface TestGroup {
   name: string;
-  skip?: boolean;
   inputs: string[];
+  only?: boolean;
+  skip?: boolean;
 }
+
+const baseURLs = [
+  'user123/is-exact-version.git',
+  'github.com:user123/is-exact-version.git',
+  'git@github.com:user123/is-exact-version.git',
+  'https://github.com:user123/is-exact-version.git',
+  'git+https://github.com:user123/is-exact-version.git',
+  'git+ssh://git@github.com:user123/is-exact-version.git',
+];
+
+const generateUrls = (baseURLs: string[], refs: string[]) => baseURLs.reduce((urls: string[], baseURL) => urls.concat(refs.map(ref => `${baseURL}${ref}`)), []);
+
+const _describe = (group: TestGroup) => (group.skip ? describe.skip.bind(describe)
+  : (group.only ? describe.only.bind(describe) : describe));
 
 describe('Exact', () => {
   [
@@ -37,7 +37,6 @@ describe('Exact', () => {
     },
     {
       name: 'Local paths',
-      skip: true,
       inputs: [
         '../foo/bar',
         '~/foo/bar',
@@ -48,7 +47,6 @@ describe('Exact', () => {
     },
     {
       name: 'Commit-ish',
-      skip: true,
       inputs: generateUrls(baseURLs, [
         '#master',
         '#something-with-hyphens',
@@ -57,8 +55,7 @@ describe('Exact', () => {
       ]),
     },
   ].forEach((group: TestGroup) => {
-    const invokation = group.skip ? describe.skip.bind(describe) : describe;
-    invokation(group.name, () => {
+    _describe(group)(group.name, () => {
       group.inputs.forEach((versionString: string) => {
         it(versionString, () => {
           expect(isExactVersion(versionString)).toStrictEqual(true);
@@ -99,12 +96,12 @@ describe('Not exact', () => {
     },
     {
       name: 'Wildcard',
-      inputs: ['*', ''],
+      inputs: ['*', '', 'x.x'],
     },
     {
       name: 'Commit-ish',
-      skip: true,
       inputs: generateUrls(baseURLs, [
+        '',
         '#semver:^5.0',
         '#semver:~1.2.0',
         '#semver:*',
@@ -113,8 +110,7 @@ describe('Not exact', () => {
       ]),
     },
   ].forEach((group: TestGroup) => {
-    const invokation = group.skip ? describe.skip.bind(describe) : describe;
-    invokation(group.name, () => {
+    _describe(group)(group.name, () => {
       group.inputs.forEach((versionString: string) => {
         it(`'${versionString}'`, () => {
           expect(isExactVersion(versionString)).toStrictEqual(false);
@@ -126,17 +122,15 @@ describe('Not exact', () => {
 
 describe('Error', () => {
   describe('Non-string', () => {
-    [undefined, null].forEach((versionString: any) =>
-      it(`(invalid) ${JSON.stringify(versionString)}`, () => {
-        expect(() => isExactVersion(versionString)).toThrow(/must be a string/);
-      })
-    );
+    [undefined, null].forEach((versionString: any) => it(`(invalid) ${JSON.stringify(versionString)}`, () => {
+      expect(() => isExactVersion(versionString)).toThrow(/must be a string/);
+    }));
   });
   describe('String', () => {
-    ['a.b.c'].forEach((versionString: string) =>
-      it(`(invalid) ${JSON.stringify(versionString)}`, () => {
-        expect(() => isExactVersion(versionString)).toThrow(/invalid version/);
-      })
-    );
+    [
+      'a.b.c',
+    ].forEach((versionString: string) => it(`(invalid) ${JSON.stringify(versionString)}`, () => {
+      expect(() => isExactVersion(versionString)).toThrow(/invalid version/);
+    }));
   });
 });

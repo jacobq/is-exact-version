@@ -1,11 +1,14 @@
 module.exports = {
     extends: "airbnb-base",
     parser: "typescript-eslint-parser",
+    plugins: ["jest"],
     root: true,
     overrides: [{
-        files: ["**/*"],
+        files: ["tests/**/*"],
+        env: {
+            "jest/globals": true
+        },
         rules: {
-            // (might add custom rules here in the future)
         }
     }]
 };
