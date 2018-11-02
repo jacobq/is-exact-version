@@ -32,7 +32,7 @@ Making my own implementation seemed the more civil course of action than engagin
 :warning: Behavior may change between versions until v1.0.0 is released.
 If you are using a 0.x version then you may want to pin it to prevent unexpected changes.
 
-*Example*: ([try it on RunKit](https://runkit.com/embed/aco1nt0row7y))
+*Example*: ([try it on RunKit](https://npm.runkit.com/is-exact-version))
  
 ```js
 const { isExactVersion } = require("is-exact-version");
