@@ -2,16 +2,14 @@
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": ".",
+    "declaration": true,
     "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": true,
     "noEmitOnError": false,
     "noEmit": false,
+    "noImplicitAny": true,
     "outDir": "dist",
-    "paths" : {
-      "@src/*": ["src/*"]
-    },
     "removeComments": true,
     "sourceMap": true,
     "strictNullChecks": true,
@@ -29,4 +27,3 @@
     "./tests/**/*.test.ts"
   ]
 }
-

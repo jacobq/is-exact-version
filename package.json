@@ -1,8 +1,12 @@
 {
   "name": "is-exact-version",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple, modern module for identifying whether a package.json \"version range\" string refers to an exact version",
+  "files": [
+    "dist"
+  ],
   "main": "dist/is-exact-version.js",
+  "types": "dist/is-exact-version.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
@@ -61,7 +65,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{ts,js,json,css,md}": [
+      "*.{ts,js,css,md}": [
         "eslint --fix",
         "git add"
       ]
