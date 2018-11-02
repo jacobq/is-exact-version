@@ -5,6 +5,9 @@ node_js:
   - "10"
   - "11"
 
+script:
+  - commitlint-travis
+
 after_success:
   - codecov
   # Also upload coverage information to CodeClimate
