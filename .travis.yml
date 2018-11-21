@@ -15,5 +15,5 @@ after_success:
   - chmod +x ./cc-test-reporter
   - export GIT_COMMIT_SHA=$TRAVIS_COMMIT
   - export GIT_BRANCH=$TRAVIS_BRANCH
-  - ./cc-test-reporter format-coverage -t lcov coverage/lcov.info
+  - ./cc-test-reporter format-coverage
   - ./cc-test-reporter upload-coverage
