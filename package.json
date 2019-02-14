@@ -40,7 +40,7 @@
   "devDependencies": {
     "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
-    "@types/debug": "4.1.0",
+    "@types/debug": "4.1.1",
     "@types/jest": "24.0.0",
     "@types/semver": "5.5.0",
     "codecov": "3.1.0",
