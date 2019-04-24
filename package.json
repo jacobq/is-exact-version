@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/jacobq/is-exact-version#readme",
   "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "node": "8.* || 10.* || >= 12.*"
   },
   "dependencies": {
     "@commitlint/travis-cli": "7.5.2",
