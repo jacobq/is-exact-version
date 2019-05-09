@@ -43,7 +43,7 @@
     "@types/debug": "4.1.4",
     "@types/jest": "24.0.12",
     "@types/semver": "6.0.0",
-    "codecov": "3.3.0",
+    "codecov": "3.4.0",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
