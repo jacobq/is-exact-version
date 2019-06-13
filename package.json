@@ -41,7 +41,7 @@
     "@commitlint/cli": "8.0.0",
     "@commitlint/config-conventional": "8.0.0",
     "@types/debug": "4.1.4",
-    "@types/jest": "24.0.13",
+    "@types/jest": "24.0.14",
     "@types/semver": "6.0.0",
     "codecov": "3.5.0",
     "cz-conventional-changelog": "2.1.0",
