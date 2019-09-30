@@ -1,6 +1,6 @@
 {
   "name": "is-exact-version",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "Simple, modern module for identifying whether a package.json \"version range\" string refers to an exact version",
   "files": [
     "dist"
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/jacobq/is-exact-version#readme",
   "engines": {
-    "node": "8.* || 10.* || >= 12.*"
+    "node": "10.* || >= 12.*"
   },
   "dependencies": {
     "@commitlint/travis-cli": "8.2.0",
