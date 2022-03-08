@@ -6,6 +6,7 @@
     "target": "esnext",
     "module": "es2022",
     "moduleResolution": "nodenext",
+    "esModuleInterop": true,
     "noEmitOnError": false,
     "noEmit": false,
     "noImplicitAny": true,

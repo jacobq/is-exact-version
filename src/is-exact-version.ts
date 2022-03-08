@@ -1,7 +1,5 @@
-import {
-  clean,
-  Range,
-} from 'semver';
+import clean from 'semver/functions/clean.js';
+import Range from 'semver/classes/range.js';
 
 let log = function(...args: any[]) {};
 (async function optionallyLoadDebugLogger() {
