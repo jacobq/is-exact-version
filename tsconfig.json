@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "declaration": true,
     "target": "esnext",
-    "module": "nodenext",
+    "module": "es2022",
     "moduleResolution": "nodenext",
     "noEmitOnError": false,
     "noEmit": false,

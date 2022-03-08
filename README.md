@@ -50,10 +50,15 @@ for (const s of examples) {
 // "1.0.0-beta.1 -> true"
 ```
 
+## Requirements
+
+* Node >= 16.* (>= 12.* should work, but is not tested)
+  For older versions use the 1.x version of this package.
+
 ## Support / questions
 
-If you have any questions or suggestions related to this module feel free to create a new issue.
-However, it should be noted that I have not actually needed to use this module for a long time,
+If you have any questions or suggestions related to this package feel free to create a new issue.
+However, it should be noted that I have not actually needed to use this for a long time,
 and the main reason I keep it around is for practice
 ("[kata](https://www.soapui.org/testing-dojo/testing-katas/what-are-testing-katas/)" if you will),
 e.g. learning to use
@@ -63,13 +68,15 @@ as well as
 
 ## Development
 
-This package uses [visionmedia/debug](https://github.com/visionmedia/debug)
+This package (optionally) uses [debug-js/debug](https://github.com/debug-js/debug)
 and will output debugging information if the `DEBUG` environment variable
 enables `is-exact-version`. e.g.
 
 ```sh
 $ DEBUG=is-exact-version node some-app.js
 ```
+
+Not that that's particularly useful for most people...
 
 This project also strives to adhere to the [conventional commits standard](https://www.conventionalcommits.org/).
 
