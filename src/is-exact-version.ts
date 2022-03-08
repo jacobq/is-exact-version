@@ -1,6 +1,7 @@
-import * as debug from 'debug';
+import debug from 'debug';
 import {
-  clean, Range,
+  clean,
+  Range,
 } from 'semver';
 
 const log = debug('is-exact-version');
@@ -19,7 +20,7 @@ const throwIfNotString = (versionString: any): void => {
   }
 };
 
-export const isExactVersion = (versionString: any) : boolean => {
+export function isExactVersion(versionString: any) : boolean {
   log(`called with ${JSON.stringify(versionString)}`);
   throwIfNotString(versionString);
 
@@ -82,6 +83,6 @@ export const isExactVersion = (versionString: any) : boolean => {
 
   // If we get this far we are dealing with something considered invalid
   throw Error(`Received invalid version string (${versionString})`);
-};
+}
 
 export default isExactVersion;
