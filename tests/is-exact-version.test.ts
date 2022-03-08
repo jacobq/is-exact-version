@@ -1,4 +1,4 @@
-import { isExactVersion } from 'src/is-exact-version';
+import { isExactVersion } from '../src/is-exact-version';
 
 interface TestGroup {
   name: string;
