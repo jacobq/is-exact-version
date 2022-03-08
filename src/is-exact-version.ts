@@ -1,10 +1,17 @@
-import debug from 'debug';
 import {
   clean,
   Range,
 } from 'semver';
 
-const log = debug('is-exact-version');
+let log = function(...args: any[]) {};
+(async function optionallyLoadDebugLogger() {
+  try {
+    const debugModule = await import('debug')
+    log = debugModule.default('is-exact-version');
+  } catch {
+    log = function(...args: any[]) {};
+  }
+})();
 
 const wildcardStrings = ['', '*', 'x', 'x.x', 'x.x.x'];
 const localFilePrefixes = ['file:', '/', './', '../', '~/'];
