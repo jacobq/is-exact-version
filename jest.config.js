@@ -1,6 +1,6 @@
-const { resolve } = require('path');
+import { resolve } from 'path';
 
-module.exports = {
+export default {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   moduleNameMapper: {

@@ -1,11 +1,12 @@
 {
   "name": "is-exact-version",
-  "version": "1.0.0",
+  "version": "2.0.0-SNAPSHOT",
   "description": "Simple, modern module for identifying whether a package.json \"version range\" string refers to an exact version",
   "files": [
     "dist"
   ],
   "main": "dist/is-exact-version.js",
+  "type": "module",
   "types": "dist/is-exact-version.d.ts",
   "scripts": {
     "build": "tsc",
@@ -30,31 +31,38 @@
   },
   "homepage": "https://github.com/jacobq/is-exact-version#readme",
   "engines": {
-    "node": "10.* || >= 12.*"
+    "node": ">= 12.*"
   },
   "dependencies": {
-    "debug": "4.3.3",
     "semver": "7.3.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.2.1",
-    "@commitlint/config-conventional": "16.2.1",
-    "@commitlint/travis-cli": "16.2.1",
-    "@types/debug": "4.1.7",
-    "@types/jest": "27.4.1",
-    "@types/semver": "7.3.9",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@commitlint/travis-cli": "^16.2.1",
+    "@types/debug": "^4.1.7",
+    "@types/jest": "^27.4.1",
+    "@types/semver": "^7.3.9",
     "@typescript-eslint/parser": "^5.14.0",
-    "codecov": "3.8.2",
-    "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.10.0",
-    "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jest": "26.1.1",
-    "husky": "7.0.4",
-    "jest": "27.5.1",
-    "lint-staged": "12.3.5",
-    "ts-jest": "27.1.3",
-    "typescript": "4.6.2"
+    "codecov": "^3.8.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.1",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "lint-staged": "^12.3.5",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.7.0-dev.20220308"
+  },
+  "peerDependencies": {
+    "debug": "^4.3.3"
+  },
+  "peerDependenciesMeta": {
+    "debug": {
+      "optional": true
+    }
   },
   "husky": {
     "hooks": {
