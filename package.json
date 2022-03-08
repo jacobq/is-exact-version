@@ -12,7 +12,7 @@
     "build": "tsc",
     "lint": "eslint .",
     "prepare": "npm run build",
-    "test": "jest"
+    "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
     "@types/semver": "^7.3.9",
     "@typescript-eslint/parser": "^5.14.0",
     "codecov": "^3.8.2",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
