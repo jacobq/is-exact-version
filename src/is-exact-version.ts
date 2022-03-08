@@ -6,7 +6,7 @@ import {
 let log = function(...args: any[]) {};
 (async function optionallyLoadDebugLogger() {
   try {
-    const debugModule = await import('debug')
+    const debugModule = await import('debug');
     log = debugModule.default('is-exact-version');
   } catch {
     log = function(...args: any[]) {};
