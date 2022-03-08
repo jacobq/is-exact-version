@@ -41,6 +41,12 @@ jobs:
           cache: npm
       - name: Install Dependencies
         run: npm ci
+      # Debug via SSH
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        with:
+          #limit-access-to-actor: false
+          limit-access-to-users: jacobq
       - name: Run Tests
         run: npm test
       - name: Run codecov
